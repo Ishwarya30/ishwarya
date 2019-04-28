@@ -1,0 +1,100 @@
+<html>
+<body>
+<form>
+	FIRST NAME:<input type="text" id="text1"><br><br><br>
+	LAST NAME:<input type="text" id="text2"><br><br>
+	EMAIL ID:<input type="email" id="text3"><br><br>
+	PASSWORD:<input type="password" id="pwd"><br><br>
+	<input type="radio" id="i1" name="gender" value="female">female
+	<input type="radio" id="i2" name="gender" value="male">male<br><br>
+	DOOR NUMBER & STREET:<input type="text" id="text6" onchange="area()" ><br><br>
+	AREA NAME:<input type="text" id="text4" onchange="pin()" disabled><br><br>
+	PIN CODE:<input type="text" id="text5" disabled><br><br>
+	<input type="checkbox" id="i4" name="ag" value="ab" onchange="permanent()">Same as permanent address<br><br>
+	DOOR NUMBER & STREET:<input type="text" id="text7" onchange="area1()" ><br><br>
+	AREA NAME:<input type="text" id="text8" onchange="pin1()"><br><br>
+	PIN CODE:<input type="text" id="text9"><br><br>
+	<input type="checkbox" id="i3" name="agee1" value="ab" onchange="agree()" >I agree upon terms and conditions
+	<input type="button" id="but" value="click" onclick="funct()" disabled><br><br>
+	<script>
+		function area()
+		{	
+			document.getElementById("text4").disabled=false;
+			document.getElementById("text5").disabled=true;
+		}
+		function pin()
+		{
+			document.getElementById("text5").disabled=false; 
+		}
+		function agree()
+		{
+			var b=document.getElementsByName("agee1");
+			if(b[0].checked)
+			{
+				document.getElementById("but").disabled=false;
+			}
+			else
+			{
+				document.getElementById("but").disabled=true;
+			}
+		}
+		function permanent()
+		{
+			var a=document.getElementsByName("ag");
+			var streetname=document.getElementById("text6").value;
+			var Areaname=document.getElementById("text4").value;
+			var pincode=document.getElementById("text5").value;
+			if(a[0].checked)
+			{
+			    document.getElementById("text7").disabled=true;
+				document.getElementById("text8").disabled=true;
+				document.getElementById("text9").disabled=true;
+				document.getElementById("text7").value=streetname;
+				document.getElementById("text8").value=Areaname;
+				document.getElementById("text9").value=pincode;
+			}
+			else
+			{	
+				document.getElementById("text7").disabled=false;
+				document.getElementById("text8").disabled=true;
+				document.getElementById("text9").disabled=true;
+			}
+		}
+			function area1()
+			{	
+				document.getElementById("text8").disabled=false;
+				document.getElementById("text9").disabled=true;
+			}
+			function pin1()
+			{
+				document.getElementById("text9").disabled=false; 
+			}
+			function area1()
+			{	
+				document.getElementById("text9").disabled=true;
+			}
+	</script>
+</form>
+</body>
+</html>
+<!-- function fun()
+	{
+		var m=document.getElementById("i1").value;
+		for i in range(3)
+		{
+			if(m=="1234")
+			{
+				alert("Your OTP is registered");
+			}
+			else
+			{
+				alert("enter the correct OTP");
+			}
+		}
+		else
+		{
+			document.getElementById("button1").disabled=true;
+			document.getElementById("i1").disabled=true;
+		}	
+		
+	}  -->
